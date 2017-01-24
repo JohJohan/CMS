@@ -11,10 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('vue');
+// });
+//
+// Auth::routes();
+//
+// Route::get('/home', 'HomeController@index');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
+Route::get('/{vue_capture?}', function () {
+  return view('vue');
+})->where('vue_capture', '[\/\w\.-]*');
