@@ -16,4 +16,6 @@
 // });
 //
 Auth::routes();
-Route::get('/', 'HomeController@index');
+// Route::get('/', 'HomeController@index');
+Route::get('/', 'PagesController@homepage');
+Route::get('/contact', 'PagesController@contact');
