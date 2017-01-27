@@ -22,4 +22,5 @@ Route::get('/contact', 'PagesController@contact');
 
 
 // Admin
+Route::get('/admin', 'AdminController@index')->name('admin.index');
 Route::get('/admin/blog', 'AdminBlogController@index');
