@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Blog;
+use Session;
 
 class AdminBlogController extends Controller
 {
@@ -14,7 +16,7 @@ class AdminBlogController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');    
+        $this->middleware('auth');
     }
 
     public function index()
@@ -29,7 +31,7 @@ class AdminBlogController extends Controller
      */
     public function create()
     {
-
+        return view('admin.blog.create');
     }
 
     /**
@@ -40,7 +42,24 @@ class AdminBlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validate
+        $this->validate($request, array(
+            'titel'        => 'required|max:255',
+            'body'         => 'required'
+        ));
+
+        // Store Database
+        $blog = New Blog;
+
+        $blog->titel            = $request->titel;
+        $blog->body             = $request->body;
+
+        $blog->save();
+
+        Session::flash('success', 'The post has been saved.');
+
+        // Redirect
+        return redirect()->route('admin.blog.show', $blog->id);
     }
 
     /**
@@ -51,7 +70,9 @@ class AdminBlogController extends Controller
      */
     public function show($id)
     {
-        //
+        $blog = Blog::find($id);
+
+        return view('admin.blog.show')->withBlog($blog);
     }
 
     /**
@@ -62,7 +83,7 @@ class AdminBlogController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
