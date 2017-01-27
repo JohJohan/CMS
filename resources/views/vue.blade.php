@@ -2,7 +2,7 @@
 <html lang="en">
     <body>
       <div id="app">
-        <h1>Hello App!</h1>
+        <h1>Hello Laravel CMS!</h1>
         <p>
           <!-- use router-link component for navigation. -->
           <!-- specify the link by passing the `to` prop. -->

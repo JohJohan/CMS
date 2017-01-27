@@ -15,10 +15,5 @@
 //     return view('vue');
 // });
 //
-// Auth::routes();
-//
-// Route::get('/home', 'HomeController@index');
-
-Route::get('/{vue_capture?}', function () {
-  return view('vue');
-})->where('vue_capture', '[\/\w\.-]*');
+Auth::routes();
+Route::get('/', 'HomeController@index');
