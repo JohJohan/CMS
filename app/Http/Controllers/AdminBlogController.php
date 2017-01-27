@@ -59,7 +59,7 @@ class AdminBlogController extends Controller
         Session::flash('success', 'The post has been saved.');
 
         // Redirect
-        return redirect()->route('admin.blog.show', $blog->id);
+        return redirect()->route('blog.show', $blog->id);
     }
 
     /**
