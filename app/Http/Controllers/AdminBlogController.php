@@ -11,9 +11,15 @@ class AdminBlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');    
+    }
+
     public function index()
     {
-        //
+        return view('admin.blog.index');
     }
 
     /**
@@ -23,7 +29,7 @@ class AdminBlogController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
